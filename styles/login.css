@@ -1,11 +1,12 @@
 body {
-  background-color: #1d5654;
+  background-color: white;
   margin: 0 auto;
   max-width: 600px;
 }
 
 .login-header {
   padding: 15px 200px;
+  
 }
 
 .login-header h1 {
