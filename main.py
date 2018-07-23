@@ -31,17 +31,18 @@ class CreationPage(webapp2.RequestHandler):
         self.response.write(creation_template.render())
 
     def post(self):
-        if self.request.get("create_btn") == "Submit":
-            email = self.request.get("email")
-            password =  self.request.get("password")
-            mailing_address = self.request.get("mailing_address")
-            first_name =  self.request.get("first_name")
-            last_name =  self.request.get("last_name")
-            account = Accounts(email = email, password = password, mailing_address = mailing_address, first_name = first_name, last_name = last_name)
-            account.put()
-            self.redirect('/')
-        else:
-            self.redirect('/')
+        pass
+        # if self.request.get("create_btn") == "Submit":
+        #     email = self.request.get("email")
+        #     password =  self.request.get("password")
+        #     mailing_address = self.request.get("mailing_address")
+        #     first_name =  self.request.get("first_name")
+        #     last_name =  self.request.get("last_name")
+        #     account = Accounts(email = email, password = password, mailing_address = mailing_address, first_name = first_name, last_name = last_name)
+        #     account.put()
+        #     self.redirect('/')
+        # else:
+        # self.redirect('/')
 
 class WelcomePage(webapp2.RequestHandler):
     def get(self):
