@@ -5,7 +5,10 @@ body {
 }
 
 .login-header {
-  padding: 150px 200px;
+  padding: 200px 200px;
+  font: small-caps bold 24px/1 sans-serif;
+  border: 4mm ridge rgb(100, 50, 220, .6);
+  color: black;
 
 }
 
