@@ -17,4 +17,7 @@ class Products(ndb.Model):
     neck_type = ndb.StringProperty(required=True)
     sleeve_type = ndb.StringProperty(required=True)
     picture = ndb.StringProperty(required=True)
+    tokens = ndb.StringProperty(required=True)
+
+
     #description = ndb.StringProperty(required=True)
