@@ -1,5 +1,5 @@
 body {
-  background-color: white;
+  background-color: azure;
   margin: 0 auto;
   max-width: 600px;
 }
@@ -11,9 +11,9 @@ body {
 
 .login-header h1 {
   color: black;
-  font-weight: normal;
+  font-weight: bold;
   margin: 0;
-  font-family: fantasy;
+  font-family: inherit;
 }
 
 h2 {
@@ -24,13 +24,13 @@ h2 {
 }
 
 .username-container {
-  padding: 30px 200px;
+  padding: 30px 00px;
 }
 
 .signup-container {
-  color: blue;
-  margin: 0;
-  padding: 10px 40px
+  color: black;
+  margin: 10px;
+  padding: 10px 50px
 }
 
 .transactions-container h3 {
