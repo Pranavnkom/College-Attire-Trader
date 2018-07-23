@@ -23,18 +23,18 @@ h2 {
   padding: 15px 200px;
 }
 
-.username-container {
-  padding: 30px 00px;
+.email-container {
+  padding: 30px 10px;
 }
 
 .signup-container {
   color: black;
   margin: 10px;
-  padding: 10px 50px
+  padding: inherit;
 }
 
 .transactions-container h3 {
-  color: black;
+  color: lightgrey;
   font-weight: 400;
   margin: 0;
 
@@ -50,9 +50,7 @@ h2 {
     margin: 0 10px;
 }
 
-.transaction-form-container {
-  background-color: #efff00;
-  border: 1px solid #da0f0f;
-  margin-top: 10px;
-  padding:15px;
+
+}
+
 }
