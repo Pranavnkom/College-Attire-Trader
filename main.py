@@ -15,6 +15,9 @@ class LoginPage(webapp2.RequestHandler):
         self.response.write(login_template.render())
 
     def post(self):
+        username = self.request.get("username")
+        password =  self.request.get("password")
+        
 
 
 
