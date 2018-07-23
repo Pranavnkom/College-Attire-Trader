@@ -7,8 +7,11 @@ body {
 .login-header {
   padding: 200px 200px;
   font: small-caps bold 24px/1 sans-serif;
-  border: 4mm ridge rgb(100, 50, 220, .6);
+  border: 6mm
   color: black;
+  border-color: #bc93ff;
+  border-style: ridge;
+  border-width: 6mm;
 
 }
 
