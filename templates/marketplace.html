@@ -2,15 +2,13 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Login Page</title>
+  <title>Marketplace Page</title>
   <link rel="stylesheet" href="../styles/marketplace.css">
   <script src = "../scripts/marketplace.js" > </script>
 </head>
 <body>
-
-  <input id="browse" type="file" onchange="previewFiles()" multiple>
-  <div id="preview"></div>
-
-
+  {% for item in logs %}
+      <img src="{{item.picture}}">
+  {% endfor %}
 </body>
 </html>

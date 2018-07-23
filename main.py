@@ -12,8 +12,8 @@ jinja_current_directory = jinja2.Environment(
 
 current_account = {}
 
-def get_products:
-    logs = Products.query.fetch()
+def get_products():
+    logs = Products.query().fetch()
     dic = {'logs': logs}
     return dic
 
