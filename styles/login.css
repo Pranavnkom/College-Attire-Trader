@@ -32,25 +32,3 @@ h2 {
   margin: 10px;
   padding: inherit;
 }
-
-.transactions-container h3 {
-  color: lightgrey;
-  font-weight: 400;
-  margin: 0;
-
-}
-
-.transaction {
-  color: white;
-  font-weight: 100;
-  margin-top: 15px;
-}
-
-.transaction > label {
-    margin: 0 10px;
-}
-
-
-}
-
-}
