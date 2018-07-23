@@ -36,9 +36,10 @@ h2 {
   padding: inherit;
 }
 
-submit {
-  color: blue;
-  font-weight: 500;
-  margin: 0;
-  padding: 15px 200px;
+.email-form {
+  color: black;
+  font-weight: bold 00;
+  margin: auto;
+  padding: px;
+
 }

@@ -20,9 +20,7 @@ class LoginPage(webapp2.RequestHandler):
         email = self.request.get("email")
         password =  self.request.get("password")
         if self.request.get("login_btn") == "Login":
-            logged = Accounts.query(Accounts.email == email).get()
-            current_account = {"logged":logged}
-            self.redirect('/welcome')
+            self.redirect('/welcome?current_user=' + email)
         else:
             self.redirect('/creation')
 
@@ -34,7 +32,12 @@ class CreationPage(webapp2.RequestHandler):
 
     def post(self):
         if self.request.get("create_btn") == "Submit":
-            account = Accounts(email = "email", password = "password", mailing_address = "mailing_address", first_name = "first_name", last_name = "last_name")
+            email = self.request.get("email")
+            password =  self.request.get("password")
+            mailing_address = self.request.get("mailing_address")
+            first_name =  self.request.get("first_name")
+            last_name =  self.request.get("last_name")
+            account = Accounts(email = email, password = password, mailing_address = mailing_address, first_name = first_name, last_name = last_name)
             account.put()
             self.redirect('/')
         else:
@@ -44,12 +47,14 @@ class WelcomePage(webapp2.RequestHandler):
     def get(self):
         welcome_template = \
                 jinja_current_directory.get_template('templates/welcome.html')
+        email = self.request.get("current_user")
+        logged = Accounts.query(Accounts.email == email).get()
+        current_account = {"logged":logged}
         self.response.write(welcome_template.render(current_account))
 
 
 app = webapp2.WSGIApplication([
     ('/', LoginPage),
-    ('/creation', CreationPage)
+    ('/creation', CreationPage),
     ('/welcome', WelcomePage)
-
 ], debug=True)
