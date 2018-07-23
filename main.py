@@ -54,14 +54,36 @@ class WelcomePage(webapp2.RequestHandler):
     def get(self):
         welcome_template = \
                 jinja_current_directory.get_template('templates/welcome.html')
+
+        self.response.write(welcome_template.render(current_account))
+    def post(self):
         token = self.request.get("current_user")
         logged = Accounts.query(Accounts.tokens == token).get()
         current_account = {"logged":logged}
-        self.response.write(welcome_template.render(current_account))
+        if self.request.get("upload_btn") == "Upload":
+            self.redirect("/upload?current_user=" + logged.tokens)
+        if self.request.get("status_btn") == "Status":
+            self.redirect("/status?current_user=" + logged.tokens)
+        if self.request.get("market_btn") == "Marketplace":
+            self.redirect("/marketplace?current_user=" + logged.tokens)
+
+class UploadPage(webapp2.RequestHandler):
+    def get(self):
+        upload_template = \
+                jinja_current_directory.get_template('templates/upload.html')
+        token = self.request.get("current_user")
+        logged = Accounts.query(Accounts.tokens == token).get()
+        current_account = {"logged":logged}
+        self.response.write(upload_template.render(current_account))
+
+
 
 
 app = webapp2.WSGIApplication([
     ('/', LoginPage),
     ('/creation', CreationPage),
-    ('/welcome', WelcomePage)
+    ('/welcome', WelcomePage),
+    ('/upload', UploadPage),
+    ('/status', StatusPage),
+    ('/marketplace', MarketPage)
 ], debug=True)
