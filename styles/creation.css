@@ -1,0 +1,8 @@
+body {
+  background-color: azure;
+  margin: 10 auto;
+  max-width: 900px;
+  max-height: 900px;
+  font: small-caps bold 40px/1 sans-serif;
+  border: 4mm ridge rgb(100, 50, 220, .6);
+}
