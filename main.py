@@ -1,6 +1,8 @@
 import webapp2
 import jinja2
 import os
+import string
+import random
 from models import Accounts, Products
 
 jinja_current_directory = jinja2.Environment(
@@ -10,6 +12,9 @@ jinja_current_directory = jinja2.Environment(
 
 current_account = {}
 
+def id_generator(size=20, chars=string.ascii_uppercase + string.digits):
+    return ''.join(random.choice(chars) for _ in range(size))
+
 class LoginPage(webapp2.RequestHandler):
     def get(self):
         login_template = \
@@ -18,9 +23,9 @@ class LoginPage(webapp2.RequestHandler):
 
     def post(self):
         email = self.request.get("email")
-        password =  self.request.get("password")
-        if self.request.get("login_btn") == "Login":
-            self.redirect('/welcome?current_user=' + email)
+        logged = Accounts.query(Accounts.email == email).get()
+        if self.request.get("login_btn") == "Login" and logged.password == self.request.get("password"):
+            self.redirect('/welcome?current_user=' + logged.token)
         else:
             self.redirect('/creation')
 
@@ -31,25 +36,26 @@ class CreationPage(webapp2.RequestHandler):
         self.response.write(creation_template.render())
 
     def post(self):
-        pass
-        # if self.request.get("create_btn") == "Submit":
-        #     email = self.request.get("email")
-        #     password =  self.request.get("password")
-        #     mailing_address = self.request.get("mailing_address")
-        #     first_name =  self.request.get("first_name")
-        #     last_name =  self.request.get("last_name")
-        #     account = Accounts(email = email, password = password, mailing_address = mailing_address, first_name = first_name, last_name = last_name)
-        #     account.put()
-        #     self.redirect('/')
-        # else:
-        # self.redirect('/')
+
+        if self.request.get("create_btn") == "Submit":
+            email = self.request.get("email")
+            password =  self.request.get("password")
+            mailing_address = self.request.get("mailing_address")
+            first_name =  self.request.get("first_name")
+            last_name =  self.request.get("last_name")
+            token = id_generator()
+            account = Accounts(email = email, password = password, mailing_address = mailing_address, first_name = first_name, last_name = last_name, token = token)
+            account.put()
+            self.redirect('/')
+        else:
+            self.redirect('/')
 
 class WelcomePage(webapp2.RequestHandler):
     def get(self):
         welcome_template = \
                 jinja_current_directory.get_template('templates/welcome.html')
-        email = self.request.get("current_user")
-        logged = Accounts.query(Accounts.email == email).get()
+        token = self.request.get("current_user")
+        logged = Accounts.query(Accounts.token == token).get()
         current_account = {"logged":logged}
         self.response.write(welcome_template.render(current_account))
 
