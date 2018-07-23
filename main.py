@@ -15,14 +15,25 @@ class LoginPage(webapp2.RequestHandler):
         self.response.write(login_template.render())
 
     def post(self):
-        username = self.request.get("username")
-        password =  self.request.get("password")
-        
+    if self.request.get("deposit_btn") == "Deposit":
+
+
+class CreationPage(webapp2.RequestHandler):
+    def get(self):
+        creation_template = \
+                jinja_current_directory.get_template('templates/creation.html')
+        self.response.write(creation_template.render())
+
+    def post(self):
+        if self.request.get("create_btn") == "Submit":
+            account = Accounts(email = "email", password = "password", mailing_address = "mailing_address", first_name = "first_name", last_name = "last_name")
+            
 
 
 
 
 app = webapp2.WSGIApplication([
     ('/', LoginPage),
+    ('/creation', CreationPage)
 
 ], debug=True)
