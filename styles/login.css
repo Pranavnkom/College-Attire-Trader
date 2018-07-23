@@ -5,8 +5,8 @@ body {
 }
 
 .login-header {
-  padding: 15px 200px;
-  
+  padding: 150px 200px;
+
 }
 
 .login-header h1 {
@@ -23,13 +23,14 @@ h2 {
   padding: 15px 200px;
 }
 
-.transactions-container {
-  padding: 15px 30px;
+.username-container {
+  padding: 30px 200px;
 }
 
-.transactions-container h3 {
-  color: lightgrey;
+.signup-container {
+  color: black;
   margin: 0;
+  padding: 10px 60px
 }
 
 .transactions-container h3 {
