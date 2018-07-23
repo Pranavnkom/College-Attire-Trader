@@ -1,0 +1,21 @@
+body {
+    background-color: azure;
+    margin: 0 auto;
+    max-width: 600px;
+    background-image: url("../images/background1.jpg");
+  }
+.creation-header{
+  padding: 20px;
+  font: small-caps bold 24px/1 sans-serif;
+  border: 6mm
+  color: black;
+  border-color: red;
+  border-style: ridge;
+  border-width: 6mm;
+  border-radius: 25px;
+  margin: 30px;
+  background: white;
+  border: aliceblue
+  outline-offset: 15px;
+}
+}
