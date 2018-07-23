@@ -12,6 +12,11 @@ jinja_current_directory = jinja2.Environment(
 
 current_account = {}
 
+def get_products:
+    logs = Products.query.fetch()
+    dic = {'logs': logs}
+    return dic
+
 def id_generator(size=90, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
 
@@ -79,16 +84,25 @@ class UploadPage(webapp2.RequestHandler):
         self.response.write(upload_template.render(current_account))
 
     def post(self):
-        pass
+        college = self.request.get("college")
+        size = self.request.get("size")
+        color = self.request.get("color")
+        is_counter = False
+        neck_type = self.request.get("neck_type")
+        sleeve_type = self.request.get("sleeve_type")
+        picture = self.request.get("image")
+        token = self.request.get("current_user")
+        logged = Accounts.query(Accounts.tokens == token).get()
+        current_account = {"logged":logged}
+        product = Products(college = college, size = size, color = color, is_counter = is_counter, neck_type = neck_type, sleeve_type = sleeve_type, picture = picture, tokens = token)
+        product.put()
+        self.redirect("/welcome?current_user=" + logged.tokens)
 
 class MarketPage(webapp2.RequestHandler):
     def get(self):
         market_template = \
                 jinja_current_directory.get_template('templates/marketplace.html')
-        token = self.request.get("current_user")
-        logged = Accounts.query(Accounts.tokens == token).get()
-        current_account = {"logged":logged}
-        self.response.write(market_template.render(current_account))
+        self.response.write(market_template.render(get_products()))
 
 class StatusPage(webapp2.RequestHandler):
     def get(self):
