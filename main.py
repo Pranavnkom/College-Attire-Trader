@@ -78,6 +78,9 @@ class UploadPage(webapp2.RequestHandler):
         current_account = {"logged":logged}
         self.response.write(upload_template.render(current_account))
 
+    def post(self):
+        pass
+
 class MarketPage(webapp2.RequestHandler):
     def get(self):
         market_template = \
