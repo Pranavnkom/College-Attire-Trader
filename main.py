@@ -27,7 +27,7 @@ class CreationPage(webapp2.RequestHandler):
     def post(self):
         if self.request.get("create_btn") == "Submit":
             account = Accounts(email = "email", password = "password", mailing_address = "mailing_address", first_name = "first_name", last_name = "last_name")
-            
+
 
 
 
@@ -35,5 +35,6 @@ class CreationPage(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', LoginPage),
     ('/creation', CreationPage)
+    
 
 ], debug=True)
