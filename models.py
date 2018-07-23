@@ -15,4 +15,4 @@ class Products(ndb.Model):
     is_counter = ndb.BooleanProperty(required=True)
     neck_type = ndb.StringProperty(required=True)
     sleeve_type = ndb.StringProperty(required=True)
-    description = ndb.StringProperty(required=True)
+    #description = ndb.StringProperty(required=True)
