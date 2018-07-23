@@ -3,6 +3,7 @@
   <meta charset="UTF-8">
   <title>Upload</title>
   <link rel="stylesheet" href="../styles/upload.css">
+  <script src = "../scripts/upload.js" > </script>
 </head>
 <body>
   <img src = "http://collegevault.com/wp-content/uploads/2016/03/wpid-curata__155MKcKP1ckBimy-660x189.jpeg">
@@ -81,8 +82,14 @@
       <option value="Boston College">Boston College</option>
       <option value="Boston University">Boston University</option>
     </select> <br>
-    <br> 
-    <input type="submit" value="Upload">
-  </body>
-</head>
+
+    <label for="image">Image:</label>
+    <input type="file" name="image" id="image_input" accept='image/*'onchange="updateImage()"/><br />
+
+  </form>
+  <br>
+
+  <input type="submit" value="Upload" >
+
+</body>
 </html>
