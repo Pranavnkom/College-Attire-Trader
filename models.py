@@ -16,7 +16,7 @@ class Products(ndb.Model):
     is_counter = ndb.BooleanProperty(required=True)
     neck_type = ndb.StringProperty(required=True)
     sleeve_type = ndb.StringProperty(required=True)
-    picture = ndb.StringProperty(required=True)
+    picture = ndb.BlobProperty(required=True)
     tokens = ndb.StringProperty(required=True)
 
 
