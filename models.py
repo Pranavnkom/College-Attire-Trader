@@ -6,6 +6,7 @@ class Accounts(ndb.Model):
     mailing_address = ndb.StringProperty(required=True)
     first_name = ndb.StringProperty(required=True)
     last_name = ndb.StringProperty(required=True)
+    tokens = ndb.StringProperty(required=True)
 
 
 class Products(ndb.Model):
