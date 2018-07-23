@@ -5,7 +5,10 @@ body {
 }
 
 .login-header {
-  padding: 150px 200px;
+  padding: 200px 200px;
+  font: small-caps bold 24px/1 sans-serif;
+  border: 4mm ridge rgb(100, 50, 220, .6);
+  color: black;
 
 }
 
@@ -31,4 +34,11 @@ h2 {
   color: black;
   margin: 10px;
   padding: inherit;
+}
+
+submit {
+  color: blue;
+  font-weight: 500;
+  margin: 0;
+  padding: 15px 200px;
 }
