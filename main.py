@@ -54,17 +54,19 @@ class WelcomePage(webapp2.RequestHandler):
     def get(self):
         welcome_template = \
                 jinja_current_directory.get_template('templates/welcome.html')
-
+        token = self.request.get("current_user")
+        logged = Accounts.query(Accounts.tokens == token).get()
+        current_account = {"logged":logged}
         self.response.write(welcome_template.render(current_account))
     def post(self):
         token = self.request.get("current_user")
         logged = Accounts.query(Accounts.tokens == token).get()
         current_account = {"logged":logged}
-        if self.request.get("upload_btn") == "Upload":
+        if self.request.get("upload_btn") == "upload":
             self.redirect("/upload?current_user=" + logged.tokens)
-        if self.request.get("status_btn") == "Status":
+        if self.request.get("status_btn") == "status":
             self.redirect("/status?current_user=" + logged.tokens)
-        if self.request.get("market_btn") == "Marketplace":
+        if self.request.get("market_btn") == "marketplace":
             self.redirect("/marketplace?current_user=" + logged.tokens)
 
 class UploadPage(webapp2.RequestHandler):
@@ -76,6 +78,23 @@ class UploadPage(webapp2.RequestHandler):
         current_account = {"logged":logged}
         self.response.write(upload_template.render(current_account))
 
+class MarketPage(webapp2.RequestHandler):
+    def get(self):
+        market_template = \
+                jinja_current_directory.get_template('templates/marketplace.html')
+        token = self.request.get("current_user")
+        logged = Accounts.query(Accounts.tokens == token).get()
+        current_account = {"logged":logged}
+        self.response.write(market_template.render(current_account))
+
+class StatusPage(webapp2.RequestHandler):
+    def get(self):
+        status_template = \
+                jinja_current_directory.get_template('templates/status.html')
+        token = self.request.get("current_user")
+        logged = Accounts.query(Accounts.tokens == token).get()
+        current_account = {"logged":logged}
+        self.response.write(status_template.render(current_account))
 
 
 
