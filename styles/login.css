@@ -35,3 +35,10 @@ h2 {
   margin: 10px;
   padding: inherit;
 }
+
+submit {
+  color: blue;
+  font-weight: 500;
+  margin: 0;
+  padding: 15px 200px;
+}
