@@ -11,7 +11,8 @@ class Accounts(ndb.Model):
 class Products(ndb.Model):
     college = ndb.StringProperty(required=True)
     size = ndb.StringProperty(required=True)
-    description = ndb.StringProperty(required=True)
     color = ndb.StringProperty(required=True)
     is_counter = ndb.BooleanProperty(required=True)
-    
+    neck_type = ndb.StringProperty(required=True)
+    sleeve_type = ndb.StringProperty(required=True)
+    description = ndb.StringProperty(required=True)
