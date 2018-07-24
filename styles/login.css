@@ -1,19 +1,24 @@
 body {
-  background-color: azure;
+  background-color: white;
   margin: 0 auto;
   max-width: 600px;
-  background-image: url("../images/background16.jpg");
+  background-image: url("../images/background17.jpg");
   background-size: cover;
-
 }
+
+form {
+  margin: 0 auto;
+  width:250px;
+  }
 
 .login-header {
   padding: 20px;
-  font: 1.2em "web-font", serif;
+  font: 1.2em , serif;
   border: 6mm
   color: black;
   margin: 30px;
-
+  font-family: 'Sigmar One';
+  font-variant: small-caps;
 }
 
 .login-header h1 {
@@ -56,11 +61,34 @@ h2 {
 
 }
 [type=submit] {
-    background-color: blue;
-    border: none;
-    color: white;
-    padding: 10px 23px;
-    text-decoration: none;
-    margin: 6px 2px;
-    cursor: pointer;
+  background-color: black;
+  border: none;
+  color: #b54444;
+  padding: 10px 23px;
+  text-decoration: none;
+  margin: 6px 2px;
+  cursor: pointer;
+}
+
+[type=text] {
+  background-color: #f2f2f2;
+  border-bottom: 1px solid black;
+  border-style: hidden hidden inset hidden;
+}
+
+[type=password] {
+  background-color: #f2f2f2;
+  border-bottom: 1px solid black;
+  border-style: hidden hidden inset hidden;
+}
+
+
+[type=Submit] {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 10px 23px;
+  text-decoration: none;
+  margin: 6px 2px;
+  cursor: pointer;
 }
