@@ -99,8 +99,9 @@ class UploadPage(webapp2.RequestHandler):
         picture = images.resize(picture, 256, 256)
         token = self.request.get("current_user")
         logged = Accounts.query(Accounts.tokens == token).get()
+        id = id_generator()
         current_account = {"logged":logged}
-        product = Products(college = college, size = size, color = color, is_counter = is_counter, neck_type = neck_type, sleeve_type = sleeve_type, picture = picture, tokens = token)
+        product = Products(college = college, size = size, color = color, is_counter = is_counter, neck_type = neck_type, sleeve_type = sleeve_type, picture = picture, tokens = token, id = id)
         product.put()
         self.redirect("/welcome?current_user=" + logged.tokens)
 
@@ -109,14 +110,14 @@ class MarketPage(webapp2.RequestHandler):
         market_template = \
                 jinja_current_directory.get_template('templates/marketplace.html')
         for i in Products.query().fetch() :
-            self.response.out.write('<form method="post"> <input type="image" src="/img?img_id=%s" border="0" alt="submit"/></form> <style> form{ display:inline-block;} </style> ' % (i.key.urlsafe()))
+            self.response.out.write('<form method="post"> <input type="image" name="tag" value="%s" src="/img?img_id=%s" border="0" alt="submit"/></form> <style> form{ display:inline-block;} </style> ' % (i.id,i.key.urlsafe()))
         self.response.write(market_template.render(get_products()))
     def post(self):
-        token = self.request.get("current_user")
-        logged = Accounts.query(Accounts.tokens == token).get()
-
-        current_account = {"logged":logged}
-        self.redirect("/status?current_user=" + logged.tokens)
+        for i in Products.query().fetch() :
+            if i.id == self.request.get("tag"):
+                token = self.request.get("current_user")
+                logged = Accounts.query(Accounts.tokens == token).get()
+                self.redirect("/desc?current_user=" + logged.tokens +"&id=" + i.id)
 
 class StatusPage(webapp2.RequestHandler):
     def get(self):
@@ -126,6 +127,20 @@ class StatusPage(webapp2.RequestHandler):
         logged = Accounts.query(Accounts.tokens == token).get()
         current_account = {"logged":logged}
         self.response.write(status_template.render(current_account))
+
+class DescriptionPage(webapp2.RequestHandler):
+    def get(self):
+        desc_template = \
+                jinja_current_directory.get_template('templates/description.html')
+        id = self.request.get("id")
+        product = Products.query(Products.id == id).get()
+        dict = {"product": product}
+        self.response.write(desc_template.render(dict))
+
+
+
+
+
 class Image(webapp2.RequestHandler):
     def get(self):
         product_key = ndb.Key(urlsafe=self.request.get('img_id'))
@@ -143,6 +158,7 @@ app = webapp2.WSGIApplication([
     ('/welcome', WelcomePage),
     ('/upload', UploadPage),
     ('/status', StatusPage),
+    ('/desc', DescriptionPage),
     ('/img', Image),
     ('/marketplace', MarketPage)
 ], debug=True)
