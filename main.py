@@ -92,7 +92,7 @@ class UploadPage(webapp2.RequestHandler):
         college = self.request.get("college")
         size = self.request.get("size")
         color = self.request.get("color")
-        is_counter = False
+        counter = ""
         neck_type = self.request.get("neck_type")
         sleeve_type = self.request.get("sleeve_type")
         picture = self.request.get('img')
@@ -101,7 +101,7 @@ class UploadPage(webapp2.RequestHandler):
         logged = Accounts.query(Accounts.tokens == token).get()
         id = id_generator()
         current_account = {"logged":logged}
-        product = Products(college = college, size = size, color = color, is_counter = is_counter, neck_type = neck_type, sleeve_type = sleeve_type, picture = picture, tokens = token, id = id)
+        product = Products(college = college, size = size, color = color, counter = counter, neck_type = neck_type, sleeve_type = sleeve_type, picture = picture, tokens = token, id = id)
         product.put()
         self.redirect("/welcome?current_user=" + logged.tokens)
 
@@ -138,9 +138,6 @@ class DescriptionPage(webapp2.RequestHandler):
         self.response.write(desc_template.render(dict))
 
 
-
-
-
 class Image(webapp2.RequestHandler):
     def get(self):
         product_key = ndb.Key(urlsafe=self.request.get('img_id'))
@@ -157,6 +154,7 @@ app = webapp2.WSGIApplication([
     ('/creation', CreationPage),
     ('/welcome', WelcomePage),
     ('/upload', UploadPage),
+    ('/counterupload', CounterPage)
     ('/status', StatusPage),
     ('/desc', DescriptionPage),
     ('/img', Image),
