@@ -47,3 +47,20 @@ h2 {
   padding: px;
 
 }
+
+.login_btn{
+  color: black;
+  font-weight: bold 00;
+  margin: auto;
+  padding: 4px;
+
+}
+[type=submit] {
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 10px 23px;
+    text-decoration: none;
+    margin: 6px 2px;
+    cursor: pointer;
+}
