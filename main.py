@@ -109,7 +109,7 @@ class MarketPage(webapp2.RequestHandler):
         market_template = \
                 jinja_current_directory.get_template('templates/marketplace.html')
         for i in Products.query().fetch() :
-            self.response.out.write('<form method="post"> <input type="image" src="/img?img_id=%s" border="0" alt="submit" /></form> <style> form{ display:inline-block;} </style> ' % (i.key.urlsafe()))
+            self.response.out.write('<form method="post"> <input type="image" src="/img?img_id=%s" border="0" alt="submit"/></form> <style> form{ display:inline-block;} </style> ' % (i.key.urlsafe()))
         self.response.write(market_template.render(get_products()))
     def post(self):
         token = self.request.get("current_user")
