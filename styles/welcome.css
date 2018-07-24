@@ -2,28 +2,79 @@ body {
   background-color: azure;
   margin: 0 auto;
   max-width: 600px;
-  background-image: url("../images/background13.jpg");
+  background-image: url("../images/background17.jpg");
   background-size: cover;
 }
 
 .creation-header{
   padding: 20px;
-  font: 1.2em "web-font", serif;
+  font: 1.2em , serif;
   border: 6mm
   color: black;
   margin: 30px;
+  font-family: 'Sigmar One';
+  font-variant: small-caps;
 }
 h2{
   padding: 20px;
-  font: 1.2em "web-font", serif;
+  font: 1.2em , serif;
   border: 6mm
   color: black;
   margin: 30px;
+  font-family: 'Sigmar One';
+  font-variant: small-caps;
 }
-.username-form{
+/* }
+.some_upload{
   padding: 20px;
-  font: 1.2em "web-font", serif;
+  font: 1.2em , serif;
   border: 6mm
   color: black;
   margin: 30px;
+  font-family: 'Sigmar One';
+  font-variant: small-caps;
+  display: inline-block;
+  float:left;
+}
+
+.some_status{
+  padding: 20px;
+  font: 1.2em , serif;
+  border: 6mm
+  color: black;
+  margin: 30px;
+  font-family: 'Sigmar One';
+  font-variant: small-caps;
+  float: right
+}
+
+.some_market{
+  padding: 20px;
+  font: 1.2em , serif;
+  border: 6mm
+  color: black;
+  margin: 30px;
+  font-family: 'Sigmar One';
+  font-variant: small-caps;
+  display: block;
+} */
+.username-form{
+  display: -webkit-flex;
+  -webkit-flex-direction: column-reverse;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+[type=Submit] {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 10px 23px;
+  text-decoration: none;
+  margin: 6px 2px;
+  cursor: pointer;
+  flex-direction: row;
+  font-family: 'Sigmar One';
+  font-variant: small-caps;
+  font-size: large
 }

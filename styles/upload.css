@@ -1,8 +1,8 @@
  body {
-  background-color: azure;
+  background-color: white;
   margin: 0 auto;
   max-width: 600px;
-  background-image: url("../images/background17.jpg");
+  /* background-image: url("../images/background18.jpg"); */
   background-size: cover;
   font: 1.2em "web-font", serif;
 }
@@ -13,5 +13,5 @@ form {
   }
 
 .signup-container{
-  
+
 }
