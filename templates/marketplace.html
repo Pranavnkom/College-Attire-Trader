@@ -7,8 +7,9 @@
   <script src = "../scripts/marketplace.js" > </script>
 </head>
 <body>
-  {% for item in logs %}
-      <img src="{{item.picture}}">
-  {% endfor %}
+  <!-- {% for item in logs %}
+      <img src="/img?img_id="+{{item.key.urlsafe()}}></img>
+      <blockquote>cgi.escape{{item.content}}</blockquote></div>
+  {% endfor %} -->
 </body>
 </html>
