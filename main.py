@@ -185,6 +185,17 @@ class DescriptionPage(webapp2.RequestHandler):
         i = product = Products.query(Products.id == id).get()
         self.redirect("/counterupload?current_user=" + logged.tokens +"&id=" + i.id)
 
+class ReplyPage(webapp2.RequestHandler):
+    def get(self):
+        reply_template = \
+                jinja_current_directory.get_template('templates/reply.html')
+        token = self.request.get("current_user")
+        logged = Accounts.query(Accounts.tokens == token).get()
+        id = self.request.get("id")
+        offers = Products.query().filter(Products.counter == id).fetch()
+
+        dict = {"offers":offers}
+        self.response.write(reply_template.render(dict))
 
 class Image(webapp2.RequestHandler):
     def get(self):
@@ -206,5 +217,6 @@ app = webapp2.WSGIApplication([
     ('/status', StatusPage),
     ('/desc', DescriptionPage),
     ('/img', Image),
+    ('/reply', ReplyPage),
     ('/marketplace', MarketPage)
 ], debug=True)
