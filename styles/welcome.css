@@ -74,7 +74,7 @@ h2{
   margin: 6px 2px;
   cursor: pointer;
   flex-direction: row;
-  font-family: 'Sigmar One';
+  font-family: 'web-font';
   font-variant: small-caps;
-  font-size: large
+  font-size: large;
 }

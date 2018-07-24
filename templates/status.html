@@ -13,13 +13,13 @@
       </ul>
       {% endfor %}
 
-  <h5>Your Replies</h5>
+  <h5>Your Offers</h5>
 
       {% for item in offers %}
 
 
           <ul>
-            <a href="http://localhost:8080/reply?current_user={{item.token}}&id={{item.id}}"><li>{{item.college}}</li></a>
+            <a href="http://localhost:8080/reply?current_user={{item.token}}&id={{item.id}}"><li>{{item.college}} shirt</li></a>
           </ul>
 
       {% endfor %}
