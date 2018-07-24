@@ -97,7 +97,7 @@ class UploadPage(webapp2.RequestHandler):
         neck_type = self.request.get("neck_type")
         sleeve_type = self.request.get("sleeve_type")
         picture = self.request.get('img')
-        picture = images.resize(picture, 256, 256)
+        picture = images.resize(picture, 64, 64)
         token = self.request.get("current_user")
         logged = Accounts.query(Accounts.tokens == token).get()
         current_account = {"logged":logged}
@@ -110,14 +110,8 @@ class MarketPage(webapp2.RequestHandler):
         market_template = \
                 jinja_current_directory.get_template('templates/marketplace.html')
         for i in Products.query().fetch() :
-            self.response.out.write('<form method="post"> <input type="image" src="/img?img_id=%s" border="0" alt="submit" /></form> <style> form{ display:inline-block;} </style> ' % (i.key.urlsafe()))
+            self.response.out.write('<div><img src="/img?img_id=%s"></img>' % i.key.urlsafe())
         self.response.write(market_template.render(get_products()))
-    def post(self):
-        token = self.request.get("current_user")
-        logged = Accounts.query(Accounts.tokens == token).get()
-
-        current_account = {"logged":logged}
-        self.redirect("/status?current_user=" + logged.tokens )
 
 class StatusPage(webapp2.RequestHandler):
     def get(self):
