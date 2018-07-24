@@ -113,7 +113,7 @@ class UploadPage(webapp2.RequestHandler):
 class CounterPage(webapp2.RequestHandler):
     def get(self):
         upload_template = \
-                jinja_current_directory.get_template('templates/upload.html')
+                jinja_current_directory.get_template('templates/counter.html')
         token = self.request.get("current_user")
         logged = Accounts.query(Accounts.tokens == token).get()
         current_account = {"logged":logged}
@@ -123,7 +123,9 @@ class CounterPage(webapp2.RequestHandler):
         college = self.request.get("college")
         size = self.request.get("size")
         color = self.request.get("color")
-        counter = ""
+        wid = self.request.get("id")
+        i = Products.query(Products.id == wid).get()
+        counter = i.id
         neck_type = self.request.get("neck_type")
         sleeve_type = self.request.get("sleeve_type")
         picture = self.request.get('img')
@@ -140,8 +142,9 @@ class MarketPage(webapp2.RequestHandler):
     def get(self):
         market_template = \
                 jinja_current_directory.get_template('templates/marketplace.html')
-        for i in Products.query().fetch() :
-            self.response.out.write('<form method="post"> <input type="image" name="tag" value="%s" src="/img?img_id=%s" border="0" alt="submit"/></form> <style> form{ display:inline-block;} </style> ' % (i.id,i.key.urlsafe()))
+        for i in Products.query().fetch():
+            if i.counter == "":
+                self.response.out.write('<form method="post"> <input type="image" name="tag" value="%s" src="/img?img_id=%s" border="0" alt="submit"/></form> <style> form{ display:inline-block;} </style> ' % (i.id,i.key.urlsafe()))
         self.response.write(market_template.render(get_products()))
     def post(self):
         for i in Products.query().fetch() :
@@ -156,17 +159,31 @@ class StatusPage(webapp2.RequestHandler):
                 jinja_current_directory.get_template('templates/status.html')
         token = self.request.get("current_user")
         logged = Accounts.query(Accounts.tokens == token).get()
-        current_account = {"logged":logged}
-        self.response.write(status_template.render(current_account))
+        request = Products.query().filter(Products.tokens == logged.tokens, Products.counter != "").fetch()
+        requests = []
+        for i in request:
+            requests.append(Products.query().filter(Products.id == i.counter).get())
+
+        offers = Products.query().filter(Products.tokens == logged.tokens, Products.counter == "" ).fetch()
+
+        dict = {"requests":requests, "offers":offers}
+        self.response.write(status_template.render(dict))
 
 class DescriptionPage(webapp2.RequestHandler):
     def get(self):
         desc_template = \
                 jinja_current_directory.get_template('templates/description.html')
         id = self.request.get("id")
+        wish = Wish.query(Wish.id == id).get()
         product = Products.query(Products.id == id).get()
-        dict = {"product": product}
+        dict = {"product": product, "wish":wish}
         self.response.write(desc_template.render(dict))
+    def post(self):
+        token = self.request.get("current_user")
+        logged = Accounts.query(Accounts.tokens == token).get()
+        id = self.request.get("id")
+        i = product = Products.query(Products.id == id).get()
+        self.redirect("/counterupload?current_user=" + logged.tokens +"&id=" + i.id)
 
 
 class Image(webapp2.RequestHandler):
