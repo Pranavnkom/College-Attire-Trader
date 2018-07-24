@@ -1,17 +1,13 @@
-/* 
 body {
   background-color: azure;
   margin: 0 auto;
   max-width: 600px;
+}
+.parallax{
   background-image: url("../images/background17.jpg");
+  height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
 }
-
-.login-header {
-  padding: 20px;
-  font: 1.2em "web-font", serif;
-  border: 6mm
-  color: black;
-  margin: 30px;
-
-} */
