@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="UTF-8">
+  <title>Status Page</title>
+  </head>
+<body>
+  <h5>Your Requested Items</h5>
+
+      {% for item in requests %}
+      <ul>
+        <li>{{item.college}}</li>
+      </ul>
+      {% endfor %}
+
+  <h5>Your Replies</h5>
+
+      {% for item in offers %}
+
+
+          <ul>
+            <a href="http://localhost:8080/reply?current_user={{item.token}}&id={{item.id}}"><li>{{item.college}}</li></a>
+          </ul>
+
+      {% endfor %}
+
+</body>
+</html>
