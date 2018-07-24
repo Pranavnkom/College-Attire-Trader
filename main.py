@@ -8,7 +8,7 @@ import urllib
 from google.appengine.api import images
 from google.appengine.api import users
 from google.appengine.ext import ndb
-from models import Accounts, Products
+from models import Accounts, Products, Wish
 
 jinja_current_directory = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -102,6 +102,37 @@ class UploadPage(webapp2.RequestHandler):
         id = id_generator()
         current_account = {"logged":logged}
         product = Products(college = college, size = size, color = color, counter = counter, neck_type = neck_type, sleeve_type = sleeve_type, picture = picture, tokens = token, id = id)
+
+        w_college = self.request.get("w_college")
+        w_size = self.request.get("w_size")
+        wish = Wish(college = w_college, size = w_size, tokens = token, id = id)
+        product.put()
+        wish.put()
+        self.redirect("/welcome?current_user=" + logged.tokens)
+
+class CounterPage(webapp2.RequestHandler):
+    def get(self):
+        upload_template = \
+                jinja_current_directory.get_template('templates/upload.html')
+        token = self.request.get("current_user")
+        logged = Accounts.query(Accounts.tokens == token).get()
+        current_account = {"logged":logged}
+        self.response.write(upload_template.render(current_account))
+
+    def post(self):
+        college = self.request.get("college")
+        size = self.request.get("size")
+        color = self.request.get("color")
+        counter = ""
+        neck_type = self.request.get("neck_type")
+        sleeve_type = self.request.get("sleeve_type")
+        picture = self.request.get('img')
+        picture = images.resize(picture, 256, 256)
+        token = self.request.get("current_user")
+        logged = Accounts.query(Accounts.tokens == token).get()
+        id = id_generator()
+        current_account = {"logged":logged}
+        product = Products(college = college, size = size, color = color, counter = counter, neck_type = neck_type, sleeve_type = sleeve_type, picture = picture, tokens = token, id = id)
         product.put()
         self.redirect("/welcome?current_user=" + logged.tokens)
 
@@ -154,7 +185,7 @@ app = webapp2.WSGIApplication([
     ('/creation', CreationPage),
     ('/welcome', WelcomePage),
     ('/upload', UploadPage),
-    ('/counterupload', CounterPage)
+    ('/counterupload', CounterPage),
     ('/status', StatusPage),
     ('/desc', DescriptionPage),
     ('/img', Image),
