@@ -2,20 +2,19 @@
 <head>
   <meta charset="UTF-8">
   <title>Welcome</title>
+  <link rel="stylesheet" href="../styles/font-loading.css">
   <link rel="stylesheet" href="../styles/welcome.css">
 </head>
 <body>
   <div class="creation-header">
     <h1>Welcome to Super Shirts!</h1>
   </div>
-
-
- <h2>Hello, {{logged.first_name}}</h2>
- <form method="post" class="username-form">
-   <input type="Submit" name= "upload_btn" value="upload"> <br>
-   <input type="Submit" name= "status_btn" value="status"> <br>
-   <input type="Submit" name= "market_btn" value="marketplace"> <br>
- </form>
-    </body>
-  </head>
-  </html>
+  <h2>Hello, {{logged.first_name}}</h2>
+  <form method="post" class="username-form">
+    <input type="Submit" name= "upload_btn" value="upload"> <br>
+    <input type="Submit" name= "status_btn" value="status"> <br>
+    <input type="Submit" name= "market_btn" value="marketplace"> <br>
+  </form>
+</body>
+</head>
+</html>

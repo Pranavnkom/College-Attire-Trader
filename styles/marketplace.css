@@ -1,0 +1,16 @@
+body {
+  background-color: azure;
+  margin: 0 auto;
+  max-width: 600px;
+  background-image: url("../images/background13.jpg");
+  background-size: cover;
+}
+
+.login-header {
+  padding: 20px;
+  font: 1.2em "web-font", serif;
+  border: 6mm
+  color: black;
+  margin: 30px;
+
+}
