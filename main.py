@@ -3,6 +3,11 @@ import jinja2
 import os
 import string
 import random
+import cgi
+import urllib
+from google.appengine.api import images
+from google.appengine.api import users
+from google.appengine.ext import ndb
 from models import Accounts, Products
 
 jinja_current_directory = jinja2.Environment(
@@ -90,7 +95,8 @@ class UploadPage(webapp2.RequestHandler):
         is_counter = False
         neck_type = self.request.get("neck_type")
         sleeve_type = self.request.get("sleeve_type")
-        picture = self.request.get("image")
+        picture = self.request.get('img')
+        picture = images.resize(picture, 256, 256)
         token = self.request.get("current_user")
         logged = Accounts.query(Accounts.tokens == token).get()
         current_account = {"logged":logged}
@@ -102,7 +108,15 @@ class MarketPage(webapp2.RequestHandler):
     def get(self):
         market_template = \
                 jinja_current_directory.get_template('templates/marketplace.html')
+        for i in Products.query().fetch() :
+            self.response.out.write('<form method="post"> <input type="image" src="/img?img_id=%s" border="0" alt="submit" /></form> <style> form{ display:inline-block;} </style> ' % (i.key.urlsafe()))
         self.response.write(market_template.render(get_products()))
+    def post(self):
+        token = self.request.get("current_user")
+        logged = Accounts.query(Accounts.tokens == token).get()
+
+        current_account = {"logged":logged}
+        self.redirect("/status?current_user=" + logged.tokens)
 
 class StatusPage(webapp2.RequestHandler):
     def get(self):
@@ -112,7 +126,15 @@ class StatusPage(webapp2.RequestHandler):
         logged = Accounts.query(Accounts.tokens == token).get()
         current_account = {"logged":logged}
         self.response.write(status_template.render(current_account))
-
+class Image(webapp2.RequestHandler):
+    def get(self):
+        product_key = ndb.Key(urlsafe=self.request.get('img_id'))
+        product = product_key.get()
+        if product.picture:
+            self.response.headers['Content-Type'] = 'image/png'
+            self.response.out.write(product.picture)
+        else:
+            self.response.out.write('No image')
 
 
 app = webapp2.WSGIApplication([
@@ -121,5 +143,6 @@ app = webapp2.WSGIApplication([
     ('/welcome', WelcomePage),
     ('/upload', UploadPage),
     ('/status', StatusPage),
+    ('/img', Image),
     ('/marketplace', MarketPage)
 ], debug=True)
