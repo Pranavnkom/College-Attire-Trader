@@ -13,9 +13,8 @@
 >>>>>>> parent of 3eec0a9... 1212
 </head>
 <body>
-  <!-- {% for item in logs %}
-      <img src="/img?img_id="+{{item.key.urlsafe()}}></img>
-      <blockquote>cgi.escape{{item.content}}</blockquote></div>
-  {% endfor %} -->
+  {% for item in logs %}
+      <img src="{{item.picture}}">
+  {% endfor %}
 </body>
 </html>

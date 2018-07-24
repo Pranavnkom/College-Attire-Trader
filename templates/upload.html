@@ -94,14 +94,14 @@
 =======
   <title>Upload</title>
   <link rel="stylesheet" href="../styles/upload.css">
-  <!-- <script src = "../scripts/upload.js" > </script> -->
+  <script src = "../scripts/upload.js" > </script>
 </head>
 <body>
   <img src = "http://collegevault.com/wp-content/uploads/2016/03/wpid-curata__155MKcKP1ckBimy-660x189.jpeg">
   <h2>Upload your attire!</h2>
-  <form enctype="multipart/form-data" method="post">
+  <form method="post">
     Size:<br>
-    <select name="size" id='size'>
+    <select name="size">
       <option value="XXS">XXS</option>
       <option value="XS">XS</option>
       <option value="S">S</option>
@@ -135,7 +135,7 @@
       <option value="Short">Short</option>
     </select> <br>
     College:<br>
-    <select name="college" id="college">
+    <select name="college">
       <option value="Adelphi University">Adelphi University</option>
       <option value="Agnes Scott College">Agnes Scott College</option>
       <option value="University of Alabama">University of Alabama</option>
@@ -175,9 +175,8 @@
     </select> <br>
 
     <label for="image">Image:</label>
-    <div><input type="file" name="img"/></div>
-    <br/>
-    <input type="submit" value="Upload" onclick="submitForm()" >
+    <input type="file" name="image" id="image_input" accept='image/*'onchange="updateImage()"/><br />
+    <input type="submit" value="Upload" >
   </form>
   <br>
 

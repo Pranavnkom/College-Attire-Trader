@@ -2,13 +2,8 @@ import webapp2
 import jinja2
 import os
 import string
-import cgi
-import urllib
 import random
 from models import Accounts, Products
-from google.appengine.api import images
-from google.appengine.api import users
-from google.appengine.ext import ndb
 
 jinja_current_directory = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -16,7 +11,6 @@ jinja_current_directory = jinja2.Environment(
     autoescape = True)
 
 current_account = {}
-
 
 def get_products():
     logs = Products.query().fetch()
@@ -96,8 +90,7 @@ class UploadPage(webapp2.RequestHandler):
         is_counter = False
         neck_type = self.request.get("neck_type")
         sleeve_type = self.request.get("sleeve_type")
-        picture = self.request.get('img')
-        picture = images.resize(picture, 64, 64)
+        picture = self.request.get("image")
         token = self.request.get("current_user")
         logged = Accounts.query(Accounts.tokens == token).get()
         current_account = {"logged":logged}
@@ -109,8 +102,6 @@ class MarketPage(webapp2.RequestHandler):
     def get(self):
         market_template = \
                 jinja_current_directory.get_template('templates/marketplace.html')
-        for i in Products.query().fetch() :
-            self.response.out.write('<div><img src="/img?img_id=%s"></img>' % i.key.urlsafe())
         self.response.write(market_template.render(get_products()))
 
 class StatusPage(webapp2.RequestHandler):
@@ -122,15 +113,6 @@ class StatusPage(webapp2.RequestHandler):
         current_account = {"logged":logged}
         self.response.write(status_template.render(current_account))
 
-class Image(webapp2.RequestHandler):
-    def get(self):
-        product_key = ndb.Key(urlsafe=self.request.get('img_id'))
-        product = product_key.get()
-        if product.picture:
-            self.response.headers['Content-Type'] = 'image/png'
-            self.response.out.write(product.picture)
-        else:
-            self.response.out.write('No image')
 
 
 app = webapp2.WSGIApplication([
@@ -139,6 +121,5 @@ app = webapp2.WSGIApplication([
     ('/welcome', WelcomePage),
     ('/upload', UploadPage),
     ('/status', StatusPage),
-    ('/img', Image),
     ('/marketplace', MarketPage)
 ], debug=True)
