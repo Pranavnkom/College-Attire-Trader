@@ -8,15 +8,15 @@
   <h5>Replies</h5>
 
       {% for product in offers %}
-      <ul>
-        <li><h4>{{product.color}} {{product.college}} shirt</h4>
+
+        <h4>{{product.color}} {{product.college}} shirt</h4>
         <img src = "/img?img_id={{product.key.urlsafe()}}">
         <h5>Size: {{product.size}}</h5>
         <h5>Neck Type: {{product.neck_type}} neck</h5>
         <h5>Sleeve Length: {{product.sleeve_type}}</h5>
-        <a href= "http://localhost:8080/confirm?current_user={{token}}&id={{product.id}}">Confirm Trade!</a>
-        <br></li>
-      </ul>
+        <a href= "http://localhost:8080/confirm?current_user={{token}}&id={{product.id}}&del={{ids}}">Confirm Trade!</a>
+        <br>
+      
       {% endfor %}
 
 

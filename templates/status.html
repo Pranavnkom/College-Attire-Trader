@@ -11,9 +11,9 @@
   <h5>Your Requested Items</h5>
 
       {% for item in requests %}
-      <ul>
-        <li>{{item.college}}</li>
-      </ul>
+
+        {{item.college}}
+
       {% endfor %}
 
   <h5>Your Offers</h5>
@@ -21,9 +21,10 @@
       {% for item in offers %}
 
 
-          <ul>
-            <a href="http://localhost:8080/reply?current_user={{item.tokens}}&id={{item.id}}"><li>{{item.college}} shirt</li></a>
-          </ul>
+
+            <a href="http://localhost:8080/reply?current_user={{item.tokens}}&id={{item.id}}">{{item.college}} shirt
+            </a><br>
+
 
       {% endfor %}
     </div>
