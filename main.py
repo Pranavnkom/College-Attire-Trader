@@ -151,6 +151,7 @@ class MarketPage(webapp2.RequestHandler):
                 logged = Accounts.query(Accounts.tokens == token).get()
                 self.redirect("/desc?current_user=" + logged.tokens +"&id=" + i.id)
 
+
 class StatusPage(webapp2.RequestHandler):
     def get(self):
         status_template = \

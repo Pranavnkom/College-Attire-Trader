@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC|Coda:800|Gravitas+One|Sigmar+One" rel="stylesheet">
   </head>
 <body>
+  <div class="parallax">
   <h5>Your Requested Items</h5>
 
       {% for item in requests %}
@@ -25,6 +26,24 @@
           </ul>
 
       {% endfor %}
+    </div>
+      <!-- <style>
+    .parallax {
+        /* The image used */
+        background-image: url("../images/background17.jpg");
+
+        /* Set a specific height */
+        height: 500px;
+
+        /* Create the parallax scrolling effect */
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    </style> -->
+
+
 
 </body>
 </html>
