@@ -4,7 +4,6 @@ import os
 import string
 import random
 import cgi
-
 import urllib
 from google.appengine.api import images
 from google.appengine.api import users
@@ -181,7 +180,7 @@ class MarketPage(webapp2.RequestHandler):
         for i in q:
             if i.counter == "":
                 self.response.out.write('<form method="post"> <input type="image" name="tag" value="%s" src="/img?img_id=%s" border="0" alt="submit"/></form> <style> form{ display:inline-block;} </style> ' % (i.id,i.key.urlsafe()))
-        
+
 
     def post(self):
         for i in Products.query().fetch() :
