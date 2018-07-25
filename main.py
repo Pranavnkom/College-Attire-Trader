@@ -15,8 +15,6 @@ jinja_current_directory = jinja2.Environment(
     extensions = ['jinja2.ext.autoescape'],
     autoescape = True)
 
-current_account = {}
-
 def get_products():
     logs = Products.query().fetch()
     dic = {'logs': logs}
@@ -194,8 +192,18 @@ class ReplyPage(webapp2.RequestHandler):
         id = self.request.get("id")
         offers = Products.query().filter(Products.counter == id).fetch()
 
-        dict = {"offers":offers}
+        dict = {"offers":offers, "token":token}
         self.response.write(reply_template.render(dict))
+
+class ConfirmPage(webapp2.RequestHandler):
+    def get(self):
+        confirm_template = \
+                jinja_current_directory.get_template('templates/confirm.html')
+        id = self.request.get("id")
+        product = Products.query(Products.id == id).get()
+        logged = Accounts.query(Accounts.tokens == product.tokens).get()
+        dict = {"product":product, "logged":logged}
+        self.response.write(confirm_template.render(dict))
 
 class Image(webapp2.RequestHandler):
     def get(self):
@@ -218,5 +226,6 @@ app = webapp2.WSGIApplication([
     ('/desc', DescriptionPage),
     ('/img', Image),
     ('/reply', ReplyPage),
+    ('/confirm', ConfirmPage),
     ('/marketplace', MarketPage)
 ], debug=True)
