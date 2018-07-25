@@ -1,17 +1,62 @@
- body {
-  background-color: white;
+body {
+  background-color: #f2f2f2; ;
   margin: 0 auto;
   max-width: 600px;
-  /* background-image: url("../images/background18.jpg"); */
+  /* background-image: url("../images/background17.jpg"); */
   background-size: cover;
-  font: 1.2em "web-font", serif;
+  font-family: 'Sigmar One';
+  font-variant: small-caps;
 }
 
 form {
   margin: 0 auto;
-  width:250px;
-  }
-
-.signup-container{
+  width: 600px;
+  font-family: 'Sigmar One';
+  font-variant: small-caps;
+  font-size: large;
 
 }
+
+h3{
+  font-size: large;
+}
+
+[type=submit] {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 15px 137px;
+  text-decoration: none;
+  margin: 2px 3x;
+  cursor: pointer;
+  font-family: 'web-font';
+  font-variant: small-caps;
+  font-size: large;
+}
+
+
+/* [name=size] {
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+  display: flex;
+  flex-direction: row;
+}
+
+[name=color] {
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+  display: flex;
+  flex-direction: row;
+}
+[name=neck_type] {
+  display: -webkit-flex;
+  -webkit-flex-direction: column-reverse;
+  display: flex;
+  flex-direction: row;
+}
+[name=sleeve_type] {
+  display: -webkit-flex;
+  -webkit-flex-direction: column-reverse;
+  display: flex;
+  flex-direction: row;
+} */
