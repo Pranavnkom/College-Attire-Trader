@@ -1,7 +1,18 @@
 body {
-  background-color: azure;
+  background-color: white;
   margin: 0 auto;
   max-width: 600px;
-  background-image: url("../images/background13.jpg");
+  background-image: url("../images/background20.png");
   background-size: cover;
+}
+
+
+h5{
+  color: black;
+  font-weight: 500;
+  margin: 0;
+  padding: 15px 200px;
+  font-family: 'Sigmar One';
+  font-variant: small-caps;
+  font-size: large;
 }

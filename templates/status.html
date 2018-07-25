@@ -3,6 +3,8 @@
   <head>
   <meta charset="UTF-8">
   <title>Status Page</title>
+  <link rel="stylesheet" href="../styles/status.css">
+  <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC|Coda:800|Gravitas+One|Sigmar+One" rel="stylesheet">
   </head>
 <body>
   <h5>Your Requested Items</h5>
@@ -23,14 +25,6 @@
           </ul>
 
       {% endfor %}
-  <h5>Your Trade Confirmations</h5>
-  {% for item in offers %}
 
-
-      <ul>
-        <a href="http://localhost:8080/reply?current_user={{item.tokens}}&id={{item.id}}"><li>{{item.college}} shirt</li></a>
-      </ul>
-
-  {% endfor %}
 </body>
 </html>
