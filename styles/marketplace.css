@@ -1,8 +1,11 @@
-body {
+/* body {
   background-color: azure;
   margin: 0 auto;
   max-width: 600px;
+
 }
+
+/*
 .parallax{
   background-image: url("../images/background17.jpg");
   height: 500px;
@@ -10,4 +13,8 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
+} */ */
+/*
+.parallax-container {
+     height: 500px;
+   } */ */
