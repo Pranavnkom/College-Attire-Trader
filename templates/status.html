@@ -19,10 +19,18 @@
 
 
           <ul>
-            <a href="http://localhost:8080/reply?current_user={{item.token}}&id={{item.id}}"><li>{{item.college}} shirt</li></a>
+            <a href="http://localhost:8080/reply?current_user={{item.tokens}}&id={{item.id}}"><li>{{item.college}} shirt</li></a>
           </ul>
 
       {% endfor %}
+  <h5>Your Trade Confirmations</h5>
+  {% for item in offers %}
 
+
+      <ul>
+        <a href="http://localhost:8080/reply?current_user={{item.tokens}}&id={{item.id}}"><li>{{item.college}} shirt</li></a>
+      </ul>
+
+  {% endfor %}
 </body>
 </html>

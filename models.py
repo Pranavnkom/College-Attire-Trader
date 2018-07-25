@@ -25,3 +25,7 @@ class Wish(ndb.Model):
     size = ndb.StringProperty(required=True)
     tokens = ndb.StringProperty(required=True)
     id = ndb.StringProperty(required=True)
+
+class Confirm(ndb.Model):
+    seller = ndb.KeyProperty(Accounts)
+    buyer = ndb.KeyProperty(Accounts)

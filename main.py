@@ -204,6 +204,11 @@ class ConfirmPage(webapp2.RequestHandler):
         logged = Accounts.query(Accounts.tokens == product.tokens).get()
         dict = {"product":product, "logged":logged}
         self.response.write(confirm_template.render(dict))
+    def post(self):
+        token= self.request.get("current_user")
+        logged = Accounts.query(Accounts.tokens == token).get()
+        self.redirect('/welcome?current_user=' + logged.tokens)
+
 
 class Image(webapp2.RequestHandler):
     def get(self):
