@@ -4,12 +4,13 @@
   <meta charset="UTF-8">
   <title>Upload</title>
   <link rel="stylesheet" href="../styles/upload.css">
-
+  <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC|Coda:800|Gravitas+One|Sigmar+One" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/font-loading.css">
+  Super shirts!
 </head>
 <body>
-  <img src = "http://collegevault.com/wp-content/uploads/2016/03/wpid-curata__155MKcKP1ckBimy-660x189.jpeg">
   <h2>Upload your attire!</h2>
-  <form method="post" enctype="multipart/form-data" >
+  <form method="post" enctype="multipart/form-data">
     Size:<br>
     <select name="size">
       <option value="XXS">XXS</option>
@@ -494,13 +495,13 @@
       <option value="Yale University">Yale University</option>
       <option value="Yeshiva University">Yeshiva University</option>
       <option value="Xavier University">Xavier University</option>
-    </select> <br>
+    </select>
+    <br>
 
     <label for="image">Image:</label>
-    <input type="file" name="img" /><br />
+    <input type="file" name="img"
     <br>
-    What do you want?
-    <br>
+    <h3> What do you want? </h3>
     Size:<br>
     <select name="w_size">
       <option value="XXS">XXS</option>
@@ -961,8 +962,9 @@
       <option value="Yale University">Yale University</option>
       <option value="Yeshiva University">Yeshiva University</option>
       <option value="Xavier University">Xavier University</option>
-    <input type="submit" value="Upload" onclick = "submitForm()" >
-  </form>
-  <br>
-</body>
-</html>
+      <br>
+      <input type="submit" value="Upload" onclick = "submitForm()" >
+      <br>
+    </form>
+  </body>
+  </html>
