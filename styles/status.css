@@ -9,26 +9,39 @@
 
 h5{
   color: black;
-  font-weight: 500;
+
   margin: 0;
-  padding: 15px 200px;
+  padding: 30px 20px;
   font-family: 'Sigmar One';
   font-variant: small-caps;
   font-size: large;
+  width:250px;
+  border-style: solid;
+
 }
 
 .parallax{
-/* The image used */
-background-image: url("../images/background20.png");
+  /* The image used */
+  background-image: url("../images/background29.jpg");
 
-/* Set a specific height */
-height: auto;
+    /* Set a specific height */
+    height: auto;
 
-/* Create the parallax scrolling effect */
-background-attachment: fixed;
-background-position: center;
-background-repeat: no-repeat;
-background-size: cover;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+color: black;
+font-weight: 500;
+margin: 0;
+padding: 1px 60px;
+font-family: 'Sigmar One';
+font-variant: small-caps;
+font-size: large;
+margin: 0 auto;
+background-color: black;
 }
 
 ul.breadcrumb {

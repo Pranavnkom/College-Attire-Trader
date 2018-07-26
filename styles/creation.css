@@ -7,7 +7,7 @@ body {
   background-color: azure;
   margin: 0 auto;
   max-width: 600px;
-  background-image: url("../images/background17.jpg");
+  background-image: url("../images/background29.jpg");
   background-size: cover;
 }
 
@@ -52,13 +52,13 @@ h1{
 }
 
 [type=text] {
-  background-color: #f2f2f2;
+  background-color: white;
   border-bottom: 1px solid black;
   border-style: hidden hidden inset hidden;
 }
 
 [type=password] {
-  background-color: #f2f2f2;
+  background-color: white;
   border-bottom: 1px solid black;
   border-style: hidden hidden inset hidden;
 }
