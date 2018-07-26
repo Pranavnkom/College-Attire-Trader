@@ -7,64 +7,6 @@ body {
   font-size: large;
 }
 
-[name=size] {
-  color: black;
-  border: none;
-  padding: 10px 23px;
-  text-decoration: none;
-  margin: 6px 2px;
-  cursor: pointer;
-  background-color: white;
-}
-
-[name=color] {
-  background-color: white;
-  border: none;
-  padding: 10px 23px;
-  text-decoration: none;
-  margin: 6px 2px;
-  cursor: pointer;
-}
-
-[name=neck_type] {
-  background-color: white;
-  border: none;
-  padding: 10px 23px;
-  text-decoration: none;
-  margin: 6px 2px;
-  cursor: pointer;
-}
-
-[name=sleeve_type] {
-  background-color: white;
-  border: none;
-  padding: 10px 23px;
-  text-decoration: none;
-  margin: 6px 2px;
-  cursor: pointer;
-}
-
-[name=college] {
-  background-color: white;
-  border: none;
-  padding: 10px 23px;
-  text-decoration: none;
-  margin: 6px 2px;
-  cursor: pointer;
-}
-
-[type=Submit] {
-  background-color: black;
-  border: none;
-  color: white;
-  padding: 5px 60px;
-  text-decoration: none;
-  margin: 6px 2px;
-  cursor: pointer;
-  font-family: 'web-font';
-  font-variant: small-caps;
-  font-size:large
-}
 
 body {
   background-color: azure;
