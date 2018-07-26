@@ -2,7 +2,7 @@ body {
   background-color: #f2f2f2; ;
   margin: 0 auto;
   max-width: 600px;
-  /* background-image: url("../images/background17.jpg"); */
+  background-image: url("../images/background26.jpg");
   background-size: cover;
   font-family: 'Sigmar One';
   font-variant: small-caps;
@@ -32,6 +32,36 @@ h3{
   font-family: 'web-font';
   font-variant: small-caps;
   font-size: large;
+}
+ul.breadcrumb {
+    padding: 10px 16px;
+    list-style: none;
+    background-color: #eee;
+}
+
+/* Display list items side by side */
+ul.breadcrumb li {
+    display: inline;
+    font-size: 18px;
+}
+
+/* Add a slash symbol (/) before/behind each list item */
+ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: black;
+    content: "/\00a0";
+}
+
+/* Add a color to all links inside the list */
+ul.breadcrumb li a {
+    color: #0275d8;
+    text-decoration: none;
+}
+
+/* Add a color on mouse-over */
+ul.breadcrumb li a:hover {
+    color: #01447e;
+    text-decoration: underline;
 }
 
 
