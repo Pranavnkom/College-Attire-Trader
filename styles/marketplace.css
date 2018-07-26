@@ -1,7 +1,7 @@
 body {
-  background-image: url("../images/background28.jpeg");
+  background-image: url("../images/background29.jpg");
   background-size: cover;
-  background-color: #f2f2f2;
+  background-color: white;
 }
 
 [name=size] {
@@ -11,7 +11,7 @@ body {
   text-decoration: none;
   margin: 6px 2px;
   cursor: pointer;
-  background-color: #f2f2f2;
+  background-color: white;
 }
 
 [name=color] {

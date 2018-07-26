@@ -5,9 +5,10 @@
   <title>Status Page</title>
   <link rel="stylesheet" href="../styles/status.css">
   <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC|Coda:800|Gravitas+One|Sigmar+One" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/font-loading.css">
   <ul class="breadcrumb">
-  <li><a href="/welcome?current_user={{token}}">home</a></li>
-  <li>status</li>
+  <li><a href="/welcome?current_user={{token}}">Home</a></li>
+  <li>marketplace</li>
   </ul>
   </head>
 <body>
@@ -17,10 +18,12 @@
       {% for item in requests %}
 
         {{item.college}}
+
         <br>
 
       {% endfor %}
 
+<br>
   <h5>Your Offers</h5>
 
       {% for item in offers %}
