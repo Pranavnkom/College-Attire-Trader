@@ -3,7 +3,10 @@ body {
   margin: 0 auto;
   max-width: 500px;
   background-image: url("../images/background29.jpg");
-  background-size: cover
+  background-size: cover;
+  font-family: 'Sigmar One';
+  font-variant: small-caps;
+  font-size: large;
 }
 
 form {

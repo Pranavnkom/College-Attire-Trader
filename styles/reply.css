@@ -35,7 +35,10 @@ body {
     margin: 0 auto;
     max-width: 600px;
     background-image: url("../images/background29.jpg");
-    background-size: cover
+    background-size: cover;
+    font-family: 'Sigmar One';
+    font-variant: small-caps;
+    font-size: large;
   }
 
   form {
@@ -82,39 +85,10 @@ body {
     padding: 4px;
 
   }
-  [type=submit] {
-    background-color: black;
-    border: none;
-    padding: 10px 23px;
-    text-decoration: none;
-    margin: 6px 2px;
-    cursor: pointer;
-  }
 
-  [type=text] {
-    background-color: #ffffff;
-    border-bottom: 1px solid black;
-    border-style: hidden hidden inset hidden;
-    font-size: large;
-  }
-
-  [type=password] {
-    background-color: #ffffff;
-    border-bottom: 1px solid black;
-    border-style: hidden hidden inset hidden;
-    font-size: large;
-  }
-
-
-  [type=Submit] {
-    background-color: black;
-    border: none;
-    color: white;
-    padding: 10px 23px;
-    text-decoration: none;
-    margin: 6px 2px;
-    cursor: pointer;
-    font-family: 'web-font';
+  h3{
+    border-style: solid;
+    font-family: 'Sigmar One';
     font-variant: small-caps;
-
+    font-size: large;
   }

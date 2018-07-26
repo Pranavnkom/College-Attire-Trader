@@ -2,6 +2,9 @@ body {
   background-image: url("../images/background29.jpg");
   background-size: cover;
   background-color: white;
+  font-family: 'Sigmar One';
+  font-variant: small-caps;
+  font-size: large;
 }
 
 [name=size] {

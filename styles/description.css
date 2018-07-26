@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 
 ul.breadcrumb {
     padding: 10px 16px;
@@ -23,19 +23,23 @@ ul.breadcrumb li+li:before {
 ul.breadcrumb li a {
     color: #0275d8;
     text-decoration: none;
+    font-family: 'Sigmar One';
+    font-variant: small-caps;
 }
 
 /* Add a color on mouse-over */
 ul.breadcrumb li a:hover {
     color: #01447e;
     text-decoration: underline;
-=======
+}
 body {
   background-color: #ffffff;
   margin: 0 auto;
   max-width: 500px;
   background-image: url("../images/background29.jpg");
-  background-size: cover
+  background-size: cover;
+  font-family: 'Sigmar One';
+  font-variant: small-caps;
 }
 
 form {
@@ -117,5 +121,4 @@ form {
   font-family: 'web-font';
   font-variant: small-caps;
 
->>>>>>> e5ad83c087aac765d1324c07b477af429ba6fd04
 }
