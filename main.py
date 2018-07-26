@@ -26,7 +26,7 @@ def id_generator(size=90, chars=string.ascii_uppercase + string.digits):
 class LoginPage(webapp2.RequestHandler):
     def get(self):
         login_template = \
-                jinja_current_directory.get_template('templates/login.html')
+                jinja_current_directory.get_template('templates/Login.html')
         self.response.write(login_template.render())
 
     def post(self):
