@@ -1,56 +1,56 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
   <meta charset="UTF-8">
   <title>Status Page</title>
   <link rel="stylesheet" href="../styles/status.css">
   <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC|Coda:800|Gravitas+One|Sigmar+One" rel="stylesheet">
   <link rel="stylesheet" href="../styles/font-loading.css">
   <ul class="breadcrumb">
-  <li><a href="/welcome?current_user={{token}}">home</a></li>
-  <li>marketplace</li>
+    <li><a href="/welcome?current_user={{token}}">home</a></li>
+    <li>status</li>
   </ul>
-  </head>
+</head>
 <body>
   <div class="parallax">
-  <h5>Your Requested Items</h5>
+    <h5>Your Requested Items</h5>
 
-      {% for item in requests %}
+    {% for item in requests %}
 
-        {{item.college}}
+    {{item.college}}
 
-        <br>
+    <br>
 
-      {% endfor %}
+    {% endfor %}
 
-<br>
-  <h5>Your Offers</h5>
+    <br>
+    <h5>Your Offers</h5>
 
-      {% for item in offers %}
-
-
-
-            <a href="/reply?current_user={{item.tokens}}&id={{item.id}}">{{item.college}} shirt
-            </a><br>
+    {% for item in offers %}
 
 
-      {% endfor %}
-    </div>
-      <!-- <style>
-    .parallax {
-        /* The image used */
-        background-image: url("../images/background17.jpg");
 
-        /* Set a specific height */
-        height: 500px;
+    <a href="/reply?current_user={{item.tokens}}&id={{item.id}}">{{item.college}} shirt
+    </a><br>
 
-        /* Create the parallax scrolling effect */
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-    </style> -->
+
+    {% endfor %}
+  </div>
+  <!-- <style>
+  .parallax {
+  /* The image used */
+  background-image: url("../images/background17.jpg");
+
+  /* Set a specific height */
+  height: 500px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style> -->
 
 
 
