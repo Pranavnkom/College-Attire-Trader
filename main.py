@@ -208,7 +208,7 @@ class StatusPage(webapp2.RequestHandler):
 
         offers = Products.query().filter(Products.tokens == logged.tokens, Products.counter == "" ).fetch()
 
-        dict = {"requests":requests, "offers":offers}
+        dict = {"requests":requests, "offers":offers, "token":token}
         self.response.write(status_template.render(dict))
 
 class DescriptionPage(webapp2.RequestHandler):
