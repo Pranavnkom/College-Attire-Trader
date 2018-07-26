@@ -71,4 +71,6 @@ h1{
   text-decoration: none;
   margin: 6px 2px;
   cursor: pointer;
+  font-family: 'web-font';
+  font-variant: small-caps;
 }
