@@ -194,6 +194,7 @@ class MarketPage(webapp2.RequestHandler):
                 self.redirect("/marketplace?current_user=" + logged.tokens + "&size_=" + self.request.get("size") + "&color_=" + self.request.get("color") + "&neck_type_=" + self.request.get("neck_type") + "&sleeve_type_=" +
                 self.request.get("sleeve_type") + "&college_=" + self.request.get("college"))
 
+
 class StatusPage(webapp2.RequestHandler):
     def get(self):
         status_template = \
