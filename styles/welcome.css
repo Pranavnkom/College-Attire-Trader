@@ -26,37 +26,37 @@ h2{
 }
 /* }
 .some_upload{
-  padding: 20px;
-  font: 1.2em , serif;
-  border: 6mm
-  color: black;
-  margin: 30px;
-  font-family: 'Sigmar One';
-  font-variant: small-caps;
-  display: inline-block;
-  float:left;
+padding: 20px;
+font: 1.2em , serif;
+border: 6mm
+color: black;
+margin: 30px;
+font-family: 'Sigmar One';
+font-variant: small-caps;
+display: inline-block;
+float:left;
 }
 
 .some_status{
-  padding: 20px;
-  font: 1.2em , serif;
-  border: 6mm
-  color: black;
-  margin: 30px;
-  font-family: 'Sigmar One';
-  font-variant: small-caps;
-  float: right
+padding: 20px;
+font: 1.2em , serif;
+border: 6mm
+color: black;
+margin: 30px;
+font-family: 'Sigmar One';
+font-variant: small-caps;
+float: right
 }
 
 .some_market{
-  padding: 20px;
-  font: 1.2em , serif;
-  border: 6mm
-  color: black;
-  margin: 30px;
-  font-family: 'Sigmar One';
-  font-variant: small-caps;
-  display: block;
+padding: 20px;
+font: 1.2em , serif;
+border: 6mm
+color: black;
+margin: 30px;
+font-family: 'Sigmar One';
+font-variant: small-caps;
+display: block;
 } */
 .username-form{
   display: -webkit-flex;
