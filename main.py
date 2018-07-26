@@ -214,10 +214,11 @@ class DescriptionPage(webapp2.RequestHandler):
     def get(self):
         desc_template = \
                 jinja_current_directory.get_template('templates/description.html')
+        token = self.request.get("current_user")
         id = self.request.get("id")
         wish = Wish.query(Wish.id == id).get()
         product = Products.query(Products.id == id).get()
-        dict = {"product": product, "wish":wish}
+        dict = {"product": product, "wish":wish, "token":token}
         self.response.write(desc_template.render(dict))
     def post(self):
         token = self.request.get("current_user")
