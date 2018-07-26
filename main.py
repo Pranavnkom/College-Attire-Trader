@@ -76,6 +76,8 @@ class WelcomePage(webapp2.RequestHandler):
             self.redirect("/status?current_user=" + logged.tokens)
         if self.request.get("market_btn") == "marketplace":
             self.redirect("/defmarketplace?current_user=" + logged.tokens)
+        if self.request.get("log_btn") == "Logout":
+            self.redirect("/")
 
 class UploadPage(webapp2.RequestHandler):
     def get(self):
@@ -159,7 +161,7 @@ class DefaultMarketPage(webapp2.RequestHandler):
 class MarketPage(webapp2.RequestHandler):
     def get(self):
         market_template = \
-                jinja_current_directory.get_template('templates/marketplace.html')
+                jinja_current_directory.get_template('templates/new_market.html')
         size = self.request.get("size_")
         color = self.request.get("color_")
         neck_type = self.request.get("neck_type_")
@@ -180,6 +182,7 @@ class MarketPage(webapp2.RequestHandler):
         for i in q:
             if i.counter == "":
                 self.response.out.write('<form method="post"> <input type="image" name="tag" value="%s" src="/img?img_id=%s" border="0" alt="submit"/></form> <style> form{ display:inline-block;} </style> ' % (i.id,i.key.urlsafe()))
+        self.response.write(market_template.render())
 
 
     def post(self):
@@ -188,11 +191,10 @@ class MarketPage(webapp2.RequestHandler):
                 token = self.request.get("current_user")
                 logged = Accounts.query(Accounts.tokens == token).get()
                 self.redirect("/desc?current_user=" + logged.tokens +"&id=" + i.id)
-            elif self.request.get("search_btn") == "Search":
+            elif self.request.get("back_btn") == "Go Back":
                 token = self.request.get("current_user")
-                logged = Accounts.query(Accounts.tokens == token).get()
-                self.redirect("/marketplace?current_user=" + logged.tokens + "&size_=" + self.request.get("size") + "&color_=" + self.request.get("color") + "&neck_type_=" + self.request.get("neck_type") + "&sleeve_type_=" +
-                self.request.get("sleeve_type") + "&college_=" + self.request.get("college"))
+                self.redirect("/defmarketplace?current_user=" + token)
+
 
 class StatusPage(webapp2.RequestHandler):
     def get(self):
