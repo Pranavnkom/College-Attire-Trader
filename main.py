@@ -140,8 +140,9 @@ class DefaultMarketPage(webapp2.RequestHandler):
     def get(self):
         market_template = \
                 jinja_current_directory.get_template('templates/marketplace.html')
+        token = self.request.get("current_user")
         items = Products.query().filter(Products.counter=="").fetch()
-        dict = {"items":items}
+        dict = {"items":items, "token":token}
         self.response.write(market_template.render(dict))
     def post(self):
         for i in Products.query().fetch():
@@ -206,7 +207,7 @@ class StatusPage(webapp2.RequestHandler):
 
         offers = Products.query().filter(Products.tokens == logged.tokens, Products.counter == "" ).fetch()
 
-        dict = {"requests":requests, "offers":offers}
+        dict = {"requests":requests, "offers":offers, "token":token}
         self.response.write(status_template.render(dict))
 
 class DescriptionPage(webapp2.RequestHandler):
