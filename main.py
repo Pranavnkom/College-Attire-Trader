@@ -26,7 +26,7 @@ def id_generator(size=90, chars=string.ascii_uppercase + string.digits):
 class LoginPage(webapp2.RequestHandler):
     def get(self):
         login_template = \
-                jinja_current_directory.get_template('templates/login.html')
+                jinja_current_directory.get_template('templates/Login.html')
         self.response.write(login_template.render())
 
     def post(self):
@@ -75,7 +75,7 @@ class WelcomePage(webapp2.RequestHandler):
         if self.request.get("status_btn") == "status":
             self.redirect("/status?current_user=" + logged.tokens)
         if self.request.get("market_btn") == "marketplace":
-            self.redirect("/marketplace?current_user=" + logged.tokens)
+            self.redirect("/defmarketplace?current_user=" + logged.tokens)
 
 class UploadPage(webapp2.RequestHandler):
     def get(self):
@@ -136,7 +136,7 @@ class CounterPage(webapp2.RequestHandler):
         product.put()
         self.redirect("/welcome?current_user=" + logged.tokens)
 
-class MarketPage(webapp2.RequestHandler):
+class DefaultMarketPage(webapp2.RequestHandler):
     def get(self):
         market_template = \
                 jinja_current_directory.get_template('templates/marketplace.html')
@@ -150,6 +150,50 @@ class MarketPage(webapp2.RequestHandler):
                 token = self.request.get("current_user")
                 logged = Accounts.query(Accounts.tokens == token).get()
                 self.redirect("/desc?current_user=" + logged.tokens +"&id=" + i.id)
+            elif self.request.get("search_btn") == "Search":
+                token = self.request.get("current_user")
+                logged = Accounts.query(Accounts.tokens == token).get()
+                self.redirect("/marketplace?current_user=" + logged.tokens + "&size_=" + self.request.get("size") + "&color_=" + self.request.get("color") + "&neck_type_=" + self.request.get("neck_type") + "&sleeve_type_=" +
+                self.request.get("sleeve_type") + "&college_=" + self.request.get("college"))
+
+class MarketPage(webapp2.RequestHandler):
+    def get(self):
+        market_template = \
+                jinja_current_directory.get_template('templates/marketplace.html')
+        size = self.request.get("size_")
+        color = self.request.get("color_")
+        neck_type = self.request.get("neck_type_")
+        sleeve_type = self.request.get("sleeve_type_")
+        college = self.request.get("college_")
+        q = Products.query()
+        if size != "Any":
+            q = q.filter(size == Products.size)
+        if color != "Any":
+            q = q.filter(color == Products.color)
+        if neck_type != "Any":
+            q = q.filter(neck_type == Products.neck_type)
+        if sleeve_type != "Any":
+            q = q.filter(sleeve_type == Products.sleeve_type)
+        if college != "Any":
+            q = q.filter(college == Products.college)
+        q = q.fetch()
+        for i in q:
+            if i.counter == "":
+                self.response.out.write('<form method="post"> <input type="image" name="tag" value="%s" src="/img?img_id=%s" border="0" alt="submit"/></form> <style> form{ display:inline-block;} </style> ' % (i.id,i.key.urlsafe()))
+
+
+    def post(self):
+        for i in Products.query().fetch() :
+            if i.id == self.request.get("tag"):
+                token = self.request.get("current_user")
+                logged = Accounts.query(Accounts.tokens == token).get()
+                self.redirect("/desc?current_user=" + logged.tokens +"&id=" + i.id)
+            elif self.request.get("search_btn") == "Search":
+                token = self.request.get("current_user")
+                logged = Accounts.query(Accounts.tokens == token).get()
+                self.redirect("/marketplace?current_user=" + logged.tokens + "&size_=" + self.request.get("size") + "&color_=" + self.request.get("color") + "&neck_type_=" + self.request.get("neck_type") + "&sleeve_type_=" +
+                self.request.get("sleeve_type") + "&college_=" + self.request.get("college"))
+
 
 class StatusPage(webapp2.RequestHandler):
     def get(self):
@@ -188,11 +232,12 @@ class ReplyPage(webapp2.RequestHandler):
         reply_template = \
                 jinja_current_directory.get_template('templates/reply.html')
         token = self.request.get("current_user")
+        ids = self.request.get("id")
         logged = Accounts.query(Accounts.tokens == token).get()
         id = self.request.get("id")
         offers = Products.query().filter(Products.counter == id).fetch()
 
-        dict = {"offers":offers, "token":token}
+        dict = {"offers":offers, "token":token, "ids":ids}
         self.response.write(reply_template.render(dict))
 
 class ConfirmPage(webapp2.RequestHandler):
@@ -200,15 +245,20 @@ class ConfirmPage(webapp2.RequestHandler):
         confirm_template = \
                 jinja_current_directory.get_template('templates/confirm.html')
         id = self.request.get("id")
+        dele = self.request.get("del")
+        d = Products.query(Products.id == dele).get()
         product = Products.query(Products.id == id).get()
         logged = Accounts.query(Accounts.tokens == product.tokens).get()
-        dict = {"product":product, "logged":logged}
+
+        dict = {"product":product, "logged":logged, "dele":dele}
         self.response.write(confirm_template.render(dict))
     def post(self):
         token= self.request.get("current_user")
         logged = Accounts.query(Accounts.tokens == token).get()
+        dele = self.request.get("del")
+        d = Products.query(Products.id == dele).get()
+        d.key.delete()
         self.redirect('/welcome?current_user=' + logged.tokens)
-
 
 class Image(webapp2.RequestHandler):
     def get(self):
@@ -232,5 +282,6 @@ app = webapp2.WSGIApplication([
     ('/img', Image),
     ('/reply', ReplyPage),
     ('/confirm', ConfirmPage),
-    ('/marketplace', MarketPage)
+    ('/defmarketplace', DefaultMarketPage),
+    ('/marketplace',MarketPage)
 ], debug=True)

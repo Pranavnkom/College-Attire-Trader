@@ -4,11 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="../styles/marketplace.css">
-
+  <ul class="breadcrumb">
+  <li><a href="/welcome">welcome</a></li>
+  <li>marketplace</li>
+  </ul>
 </head>
 <body>
+
+  <form method="post">
+
   <h2>Search the marketplace!</h2>
   <form method="post" enctype="multipart/form-data" >
+
     Size:<br>
     <select name="size">
       <option value="Any">Any</option>
@@ -498,10 +505,15 @@
       <option value="Yale University">Yale University</option>
       <option value="Yeshiva University">Yeshiva University</option>
       <option value="Xavier University">Xavier University</option>
+
     </select> <br>
 
   <form method="post">
-    <input type="submit" value="Search">
+    <input type="submit" name='search' value="Search">
+
+    </select>
+    <br>
+    <input type="submit" value="Search" name="search_btn" >
+
   </form>
-</body>
-</html>
+</body></html>
