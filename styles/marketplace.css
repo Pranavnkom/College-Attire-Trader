@@ -57,12 +57,13 @@ body {
   background-color: black;
   border: none;
   color: white;
-  padding: 10px 23px;
+  padding: 5px 60px;
   text-decoration: none;
   margin: 6px 2px;
   cursor: pointer;
   font-family: 'web-font';
   font-variant: small-caps;
+  font-size:large
 }
 
 body {
