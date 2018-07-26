@@ -10,6 +10,18 @@
   </ul>
 </head>
 <body>
+<div class="images">
+<form  method="post">
+  {% for i in items %}
+  <input type="image" name="tag" value="{{i.id}}" src="/img?img_id={{i.key.urlsafe()}}" border="0" alt="submit"/>
+  {% endfor %}
+</form>
+
+</div>
+
+<style>
+.images{ display:inline-block;}
+</style>
 
   <form method="post">
 
@@ -506,10 +518,6 @@
       <option value="Yeshiva University">Yeshiva University</option>
       <option value="Xavier University">Xavier University</option>
 
-    </select> <br>
-
-  <form method="post">
-    <input type="submit" name='search' value="Search">
 
     </select>
     <br>
