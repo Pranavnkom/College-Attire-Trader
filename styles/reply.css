@@ -28,11 +28,12 @@ ul.breadcrumb li a {
 ul.breadcrumb li a:hover {
   color: #01447e;
   text-decoration: underline;
+}
 
-  body {
+body {
     background-color: #ffffff;
     margin: 0 auto;
-    max-width: 500px;
+    max-width: 600px;
     background-image: url("../images/background29.jpg");
     background-size: cover
   }
