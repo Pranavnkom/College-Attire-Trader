@@ -140,12 +140,12 @@ class DefaultMarketPage(webapp2.RequestHandler):
     def get(self):
         market_template = \
                 jinja_current_directory.get_template('templates/marketplace.html')
-        for i in Products.query().fetch():
-            if i.counter == "":
-                self.response.out.write('<form method="post"> <input type="image" name="tag" value="%s" src="/img?img_id=%s" border="0" alt="submit"/></form> <style> form{ display:inline-block;} </style> ' % (i.id,i.key.urlsafe()))
-        self.response.write(market_template.render(get_products()))
+        token = self.request.get("current_user")
+        items = Products.query().filter(Products.counter=="").fetch()
+        dict = {"items":items, "token":token}
+        self.response.write(market_template.render(dict))
     def post(self):
-        for i in Products.query().fetch() :
+        for i in Products.query().fetch():
             if i.id == self.request.get("tag"):
                 token = self.request.get("current_user")
                 logged = Accounts.query(Accounts.tokens == token).get()
@@ -193,7 +193,6 @@ class MarketPage(webapp2.RequestHandler):
                 logged = Accounts.query(Accounts.tokens == token).get()
                 self.redirect("/marketplace?current_user=" + logged.tokens + "&size_=" + self.request.get("size") + "&color_=" + self.request.get("color") + "&neck_type_=" + self.request.get("neck_type") + "&sleeve_type_=" +
                 self.request.get("sleeve_type") + "&college_=" + self.request.get("college"))
-
 
 class StatusPage(webapp2.RequestHandler):
     def get(self):

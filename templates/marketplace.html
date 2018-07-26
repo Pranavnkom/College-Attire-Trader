@@ -1,15 +1,33 @@
 <!DOCTYPE html>
-
 <html>
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="../styles/marketplace.css">
+<<<<<<< HEAD
   <!-- <ul class="breadcrumb">
   <li><a href="/welcome">welcome</a></li>
   <li>marketplace</li>
   </ul> -->
+=======
+  <ul class="breadcrumb">
+    <li><a href="/welcome?current_user={{token}}">welcome</a></li>
+    <li>marketplace</li>
+  </ul>
+>>>>>>> 22da5b373165ff6da2b1bebb1b2fbac1ccde2b38
 </head>
 <body>
+<div class="images">
+<form  method="post">
+  {% for i in items %}
+  <input type="image" name="tag" value="{{i.id}}" src="/img?img_id={{i.key.urlsafe()}}" border="0" alt="submit"/>
+  {% endfor %}
+</form>
+
+</div>
+
+<style>
+.images{ display:inline-block;}
+</style>
 
   <form method="post">
 
@@ -506,10 +524,13 @@
       <option value="Yeshiva University">Yeshiva University</option>
       <option value="Xavier University">Xavier University</option>
 
+<<<<<<< HEAD
     </select> <br>
 
   <form method="post">
     <input type="submit" name='search' value="Search">
+=======
+>>>>>>> 22da5b373165ff6da2b1bebb1b2fbac1ccde2b38
 
     </select>
     <br>

@@ -1,68 +1,106 @@
- body {
+body {
+  background-image: url("../images/background28.jpeg");
+  background-size: cover;
+  background-color: #f2f2f2;
+}
+
+[name=size] {
+  color: black;
+  border: none;
+  padding: 10px 23px;
+  text-decoration: none;
+  margin: 6px 2px;
+  cursor: pointer;
+  background-color: #f2f2f2;
+}
+
+[name=color] {
+  background-color: white;
+  border: none;
+  padding: 10px 23px;
+  text-decoration: none;
+  margin: 6px 2px;
+  cursor: pointer;
+}
+
+[name=neck_type] {
+  background-color: white;
+  border: none;
+  padding: 10px 23px;
+  text-decoration: none;
+  margin: 6px 2px;
+  cursor: pointer;
+}
+
+[name=sleeve_type] {
+  background-color: white;
+  border: none;
+  padding: 10px 23px;
+  text-decoration: none;
+  margin: 6px 2px;
+  cursor: pointer;
+}
+
+[name=college] {
+  background-color: white;
+  border: none;
+  padding: 10px 23px;
+  text-decoration: none;
+  margin: 6px 2px;
+  cursor: pointer;
+}
+body {
   background-color: azure;
   margin: 0;
 }
 
 ul.breadcrumb {
-    padding: 10px 16px;
-    list-style: none;
-    background-color: #eee;
+  padding: 10px 16px;
+  list-style: none;
+  background-color: #eee;
 }
 
 /* Display list items side by side */
 ul.breadcrumb li {
-    display: inline;
-    font-size: 18px;
+  display: inline;
+  font-size: 18px;
 }
 
 /* Add a slash symbol (/) before/behind each list item */
 ul.breadcrumb li+li:before {
-    padding: 8px;
-    color: black;
-    content: "/\00a0";
+  padding: 8px;
+  color: black;
+  content: "/\00a0";
 }
 
 /* Add a color to all links inside the list */
 ul.breadcrumb li a {
-    color: #0275d8;
-    text-decoration: none;
+  color: #0275d8;
+  text-decoration: none;
 }
 
 /* Add a color on mouse-over */
 ul.breadcrumb li a:hover {
-    color: #01447e;
-    text-decoration: underline;
+  color: #01447e;
+  text-decoration: underline;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* body {
-  background-image: url("../images/background17.jpg");
-  background-size: cover;
+background-image: url("../images/background17.jpg");
+background-size: cover;
 } */
+
 
 /*
 .parallax{
-  background-image: url("../images/background17.jpg");
-  height: 500px;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+background-image: url("../images/background17.jpg");
+height: 500px;
+background-attachment: fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
 } */
 /*
 .parallax-container {
-     height: 500px;
-   } */
+height: 500px;
+} */
