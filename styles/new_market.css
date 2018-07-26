@@ -3,3 +3,16 @@ body {
   background-size: cover;
   background-color: white;
 }
+
+[type=Submit] {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 10px 28px;
+  text-decoration: none;
+  margin: 6px 2px;
+  cursor: pointer;
+  font-family: 'web-font';
+  font-variant: small-caps;
+  font-size: large;
+}

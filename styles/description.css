@@ -120,5 +120,14 @@ form {
   cursor: pointer;
   font-family: 'web-font';
   font-variant: small-caps;
+  font-size: large;
+}
+h4{
+  font-variant: small-caps;
+  font-size: large;
+}
 
+h5{
+  font-variant: small-caps;
+  font-size: large;
 }
