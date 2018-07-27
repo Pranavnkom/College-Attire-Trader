@@ -1,15 +1,5 @@
-/* body {
-background-color: white;
-margin: 0 auto;
-max-width: 600px;
-background-image: url("../images/background20.png");
-background-size: cover;
-} */
-
-
 h5{
   color: black;
-
   margin: 0;
   padding: 30px 20px;
   font-family: 'Sigmar One';
@@ -17,22 +7,23 @@ h5{
   font-size: large;
   width:250px;
   border-style: solid;
-
 }
 
-.parallax{
-  /* The image used */
+body {
+  background-color: white; ;
   background-image: url("../images/background29.jpg");
+  background-size: cover;
+  font-family: 'Sigmar One';
+  font-variant: small-caps;
+}
 
-  /* Set a specific height */
+/* .parallax{
+  background-image: url("../images/background29.jpg");
   height: auto;
-
-  /* Create the parallax scrolling effect */
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
   color: black;
   font-weight: 500;
   margin: 0;
@@ -42,14 +33,13 @@ h5{
   font-size: large;
   margin: 0 auto;
   background-color: black;
-}
+} */
+
 .breadcrumb {
   font-family: 'Sigmar One';
   font-variant: small-caps;
   font-size: large;
 }
-
-
 
 ul.breadcrumb {
   padding: 10px 16px;
@@ -57,26 +47,22 @@ ul.breadcrumb {
   background-color: #eee;
 }
 
-/* Display list items side by side */
 ul.breadcrumb li {
   display: inline;
   font-size: 18px;
 }
 
-/* Add a slash symbol (/) before/behind each list item */
 ul.breadcrumb li+li:before {
   padding: 8px;
   color: black;
   content: "/\00a0";
 }
 
-/* Add a color to all links inside the list */
 ul.breadcrumb li a {
   color: #0275d8;
   text-decoration: none;
 }
 
-/* Add a color on mouse-over */
 ul.breadcrumb li a:hover {
   color: #01447e;
   text-decoration: underline;

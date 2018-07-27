@@ -15,6 +15,7 @@ body {
   font-family: 'Sigmar One';
   font-variant: small-caps;
 }
+
 h2{
   padding: 20px;
   font: 1.2em , serif;
@@ -24,40 +25,7 @@ h2{
   font-family: 'Sigmar One';
   font-variant: small-caps;
 }
-/* }
-.some_upload{
-padding: 20px;
-font: 1.2em , serif;
-border: 6mm
-color: black;
-margin: 30px;
-font-family: 'Sigmar One';
-font-variant: small-caps;
-display: inline-block;
-float:left;
-}
 
-.some_status{
-padding: 20px;
-font: 1.2em , serif;
-border: 6mm
-color: black;
-margin: 30px;
-font-family: 'Sigmar One';
-font-variant: small-caps;
-float: right
-}
-
-.some_market{
-padding: 20px;
-font: 1.2em , serif;
-border: 6mm
-color: black;
-margin: 30px;
-font-family: 'Sigmar One';
-font-variant: small-caps;
-display: block;
-} */
 .username-form{
   display: -webkit-flex;
   -webkit-flex-direction: column-reverse;

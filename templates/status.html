@@ -14,45 +14,17 @@
 <body>
   <div class="parallax">
     <h5>Your Requested Items</h5>
-
     {% for item in requests %}
-
     {{item.college}}
-
     <br>
-
     {% endfor %}
-
     <br>
     <h5>Your Offers</h5>
-
     {% for item in offers %}
-
-
-
     <a href="/reply?current_user={{item.tokens}}&id={{item.id}}">{{item.college}} shirt
     </a><br>
-
-
     {% endfor %}
+    <p></p>
   </div>
-  <!-- <style>
-  .parallax {
-  /* The image used */
-  background-image: url("../images/background17.jpg");
-
-  /* Set a specific height */
-  height: 500px;
-
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-</style> -->
-
-
-
 </body>
 </html>

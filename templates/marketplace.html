@@ -9,15 +9,11 @@
     <li><a href="/welcome?current_user={{token}}">Home</a></li>
     <li>marketplace</li>
   </ul>
-
 </head>
 <body>
-
   <form method="post">
-
     <h2>Search the marketplace!</h2>
     <form method="post" enctype="multipart/form-data" >
-
       Size:
       <select name="size">
         <option value="Any">Any</option>
@@ -507,28 +503,20 @@
         <option value="Yale University">Yale University</option>
         <option value="Yeshiva University">Yeshiva University</option>
         <option value="Xavier University">Xavier University</option>
-
-
       </select>
       <br>
       <input type="submit" value="Search" name="search_btn" >
-
     </form>
     <br>
-
-
-  <div class="images">
-    <form  method="post">
-      {% for i in items %}
-      <input type="image" name="tag" value="{{i.id}}" src="/img?img_id={{i.key.urlsafe()}}" border="0" alt="submit"/>
-      {% endfor %}
-    </form>
-
-  </div>
-
-  <style>
-  .images{ display:inline-block;}
-</style>
-
-
-</body></html>
+    <div class="images">
+      <form  method="post">
+        {% for i in items %}
+        <input type="image" name="tag" value="{{i.id}}" src="/img?img_id={{i.key.urlsafe()}}" border="0" alt="submit"/>
+        {% endfor %}
+      </form>
+    </div>
+    <style>
+    .images{ display:inline-block;}
+  </style>
+</body>
+</html>
